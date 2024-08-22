@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System Using Blockchain</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        input, button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blockchain Voting System</h1>
+
+    <div class="section">
+        <h3>Register Voter</h3>
+        <input type="text" id="voter_id" placeholder="Enter Voter ID">
+        <button onclick="registerVoter()">Register</button>
+        <p id="registerResult"></p>
+    </div>
+
+    <div class="section">
+        <h3>Cast Vote</h3>
+        <input type="text" id="vote_voter_id" placeholder="Enter Voter ID">
+        <input type="text" id="candidate" placeholder="Enter Candidate Name">
+        <button onclick="castVote()">Vote</button>
+        <p id="voteResult"></p>
+    </div>
+
+    
+
+    <script>
+        function registerVoter() {
+            const voterId = document.getElementById('voter_id').value;
+            fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ voter_id: voterId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('registerResult').innerText = data.message || data.error;
+            });
+        }
+
+        function castVote() {
+            const voterId = document.getElementById('vote_voter_id').value;
+            const candidate = document.getElementById('candidate').value;
+            fetch('/vote', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ voter_id: voterId, candidate: candidate })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('voteResult').innerText = data.message || data.error;
+            });
+        }
+
+    </script>
+</body>
+</html>

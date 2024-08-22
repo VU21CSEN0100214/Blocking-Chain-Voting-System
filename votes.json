@@ -1,0 +1,18 @@
+[
+    {
+        "index": 1,
+        "timestamp": 1724345936316,
+        "voterHash": "96cd4b9c6bada9614132511415ff6ab15c13cf4c4cf3a7c10e2a529bbeb83d20",
+        "candidate": "Sai",
+        "previousHash": "47085075ed3376f87122eba83bf4849f80387855b0a82c46ae6acd7329055150",
+        "hash": "c789704d62aa0ac09f5090c2d911ef9e461aec7d63bad123bdefbaaac25194b7"
+    },
+    {
+        "index": 2,
+        "timestamp": 1724345965945,
+        "voterHash": "8bbbaa776ba2e5c07fe4c48973580c376d757d4f26d9e9871927d397b13b9b2f",
+        "candidate": "Rohit",
+        "previousHash": "c789704d62aa0ac09f5090c2d911ef9e461aec7d63bad123bdefbaaac25194b7",
+        "hash": "48a02fa4c89a52a90c0055c67290ba612f110d47fd6e48b5b29a300618ba6f77"
+    }
+]
